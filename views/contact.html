@@ -3,16 +3,16 @@
 	<ul class="contacts">
 		<div ng-if="edit">
 			<li ng-repeat="contact in item.contacts">
-				<!--<img ng-src="{{contact.photoURI}}" />-->
-				<img class="avatar" src="http://zoubda.free.fr/olivier/bemyappTizen/{{contact.displayContactId}}.png" />
+				<img class="avatar" ng-src="{{contact.photoURI}}" />
+				<!--<img class="avatar" src="http://zoubda.free.fr/olivier/bemyappTizen/{{contact.displayContactId}}.png" />-->
 				<span>{{contact.displayName}}</span>
 				<span class="selection"><i class="fa actionable" ng-class="contact.selected && 'fa-check-square-o' || 'fa-square-o'" ng-click="check(contact)"></i></span>
 			</li>
 		</div>
 		<div ng-if="!edit">
 			<li ng-repeat="contact in item.contacts" ng-if="contact.selected">
-				<!--<img ng-src="{{contact.photoURI}}" />-->
-				<img class="avatar" src="http://zoubda.free.fr/olivier/bemyappTizen/{{contact.displayContactId}}.png" />
+				<img class="avatar" ng-src="{{contact.photoURI}}" />
+				<!--<img class="avatar" src="http://zoubda.free.fr/olivier/bemyappTizen/{{contact.displayContactId}}.png" />-->
 				<span>{{contact.displayName}}</span>
 			</li>
 		</div>

@@ -109,7 +109,74 @@ ul.contacts img.avatar {
 }
 
 .card .title {
-	font-size:1.6em;
+	font-size:1.2em;
+}
+
+.header .title {
+	
+}
+
+.header .colorbutton {
+	float:right;
+}
+
+.color {
+	width: 3em;
+	height: 3em;
+}
+
+.light-grey {
+	color: #8F8F8F;
+}
+
+.dark-grey {
+	color: #525252;
+}
+
+.gray {
+	background-color: #D5D5D5 !important;
+}
+
+.white {
+	background-color: #ffffff !important;
+}
+
+.purple {
+	background-color: rgb(164, 122, 226) !important;
+	color: #fff;
+}
+
+.yellow {
+	background-color: rgb(251, 233, 131) !important;
+}
+
+.orange {
+	background-color: rgb(255, 173, 70) !important;
+	color: #fff;
+}
+
+.blue {
+	background-color: rgb(73, 134, 231) !important;
+	color: #fff;
+}
+
+.green {
+	background-color: rgb(22, 167, 101) !important;
+	color: #fff;
+}
+
+.red {
+	background-color: rgb(248, 58, 34) !important;
+	color: #fff;
+}
+
+notesmedia="all"
+.left {
+float: left;
+}
+notesmedia="all"
+.link {
+cursor: pointer;
 }
 
 /* FROM SEMANTIC-UI */

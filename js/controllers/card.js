@@ -52,6 +52,20 @@ angular.module('brownie').controller('CardCtrl', [
 
 
         $scope.addContact = function() {
+        	try {
+        		var sortingMode =  new tizen.SortMode('displayName', 'ASC');
+                tizen.contact.find(function(contacts) {
+                    console.log(contacts);
+                    $scope.addItem({type:'contact', title:'', contacts:contacts});
+                    $scope.$apply();
+                }, function(error) {
+                    console.log(errors)
+                },
+                null, sortingMode);
+            } catch (err) {
+                console.log( 'The following error occurred while finding: ' +  err);
+            }
+            /*
         	$scope.addItem({type:'contact', title:'', contacts:[
         	                                	           		{
         	                                	           			displayName:"Jimmy Ma",
@@ -68,7 +82,7 @@ angular.module('brownie').controller('CardCtrl', [
         	                                	           			displayContactId:"3",
         	                                	           			selected:false
         	                                	           		}]});
-        	
+        	*/
         	/*
             var addressbook;
 
