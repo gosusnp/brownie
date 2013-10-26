@@ -1,5 +1,5 @@
 <div class="todo ui piled segment">
-	<span contenteditable="true" ng-model="item.name"></span><br />
+	<i class="resize fa fa-resize-vertical"></i> <span contenteditable="true" ng-model="item.name"></span><br />
 	<span class="remaining">{{remaining()}} of {{item.tasks.length}} remaining</span>
 	<div class="progress">
 		<div class="progress-bar" role="progressbar" aria-valuenow="{{progression()}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progression()}}%">

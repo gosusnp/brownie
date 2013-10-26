@@ -48,6 +48,10 @@ ul, li {
 .card .items .item {
 }
 
+.card .resize {
+	float:right;
+	cursor:move;
+}
 /* TODO item */
 .todo .done-true {
 	text-decoration: line-through;

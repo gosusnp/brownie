@@ -9,6 +9,7 @@
 
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	<link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="css/vendor/jquery-ui-1.10.3.custom.css"/>
 	<link rel="stylesheet" type="text/css" href="css/vendor/font-awesome.min.css"/>
 </head>
 
@@ -22,22 +23,33 @@
 
 		<div class="card">
 			<div class="items">
+				<div ui-sortable="sortableOptions" ng-model="items">
+					<div class="item" ng-repeat="item in items">
+						<div ng-if="item.type == 'todo'"><todo></todo></div>
+						<div ng-if="item.type == 'canvas'"><mycanvas></mycanvas></div>
+						<div ng-if="item.type == 'note'"><note></note></div>
+					</div>
+				</div>
+				<!-- 
 				<div class="item" ng-repeat="item in items">
 					<div ng-if="item.type == 'todo'"><todo></todo></div>
 					<div ng-if="item.type == 'canvas'"><mycanvas></mycanvas></div>
 					<div ng-if="item.type == 'note'"><note></note></div>
 				</div>
+				 -->
 			</div>
 			<div class="add-item btn-group dropup">
 				<!--<button class="btn btn-link">Dropup</button>
 				<button class="btn dropdown-toggle" data-toggle="dropdown">
 					<span class="caret"></span>
 				</button>-->
-				 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-plus"></i></a>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-plus"></i></a>
 				<ul class="dropdown-menu pull-right">
 					<li><a href="#" ng-click="addNote()"><i class="fa fa-file-text-o"></i> Note</a></li>
 					<li><a href="#" ng-click="addTodo()"><i class="fa fa-check-square-o"></i> Checklist</a></li>
 					<li><a href="#" ng-click="addCanvas()"><i class="fa fa-pencil-square-o"></i> Draw</a></li>
+					<li><a href="#" ng-click="addPhoto()"><i class="fa fa-camera"></i> Photo</a></li>
+					<li><a href="#" ng-click="addContat()"><i class="fa fa-user"></i> Contact</a></li>
 				</ul>
 			</div>
 		</div>
@@ -48,8 +60,10 @@
 	</div>   
 
 	<script src="js/vendor/jquery-2.0.3.min.js"></script>
+	<script src="js/vendor/jquery-ui-1.10.3.custom.min.js"></script>
 	<script src="js/vendor/angular.min.js"></script>
 	<script src="js/vendor/bootstrap.min.js"></script>
+	<script src="js/vendor/sortable.js"></script>
 	<script src="js/brownie.js"></script>
 	<script src="js/directives/contenteditable.js"></script>
 	<script src="js/directives/drawing.js"></script>
