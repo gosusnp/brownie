@@ -120,7 +120,19 @@ app.controller('MainCtrl', [
 		$scope.addContat = function() {
 			var addressbook;
 			
-			tizen.contact.getAddressBooks(addressbooksuccess, addressbookfail);	
+			var sortingMode =  new tizen.SortMode('displayName', 'ASC');
+			  try {
+			    tizen.contact.find(function(contacts) {
+			    	console.log(contacts);
+			    }, function(error) {
+			    	console.log(errors)
+			    },
+			    null, sortingMode);
+			  } catch (err) {
+			    console.log( 'The following error occurred while finding: ' +  err.name);
+			  }
+			  
+			//tizen.contact.getAddressBooks(addressbooksuccess, addressbookfail);	
 		}
 		
 		function addressbooksuccess(addressbooks) {
