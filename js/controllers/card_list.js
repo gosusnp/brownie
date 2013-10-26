@@ -3,5 +3,9 @@ angular.module('brownie').controller('CardListCtrl', [
     function($scope, cardStore) {
         cardStore.getCards();
         $scope.cards = cardStore.cards;
+
+        $scope.addCard = function() {
+            cardStore.cards.push({items: []});
+        }
     }
 ]);
