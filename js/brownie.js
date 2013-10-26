@@ -12,8 +12,8 @@ window.onload = init;
 var app = angular.module('brownie', []);
 
 app.controller('MainCtrl', [
-	'$scope',
-	function($scope) {
+	'$scope', '$location', '$anchorScroll',
+	function($scope,$location,$anchorScroll) {
 		$scope.items = [
 		{type: 'todo', name:"Ménage", tasks: [{
 			text:"Faire à manger",
@@ -62,6 +62,7 @@ app.controller('MainCtrl', [
 				type:'note',
 				text:''
 			});
+			scrollToBottom();
 		}
 		
 		$scope.addTodo = function() {
@@ -72,6 +73,7 @@ app.controller('MainCtrl', [
 						name:'',
 						tasks: []
 					});
+			scrollToBottom();
 		}
 		
 		$scope.addCanvas = function() {
@@ -80,6 +82,11 @@ app.controller('MainCtrl', [
 					{
 						type:'canvas'
 					});
+			scrollToBottom();
+		}
+		
+		function scrollToBottom() {
+			$("html, body").animate({ scrollTop: $(document).height() }, 1000);
 		}
 	}
 ]);

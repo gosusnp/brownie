@@ -63,6 +63,10 @@ ul, li {
 	list-style-type: none;
 }
 
+.todo li:first-child {
+	margin-top:5px;
+}
+
 .todo .progress {
 	height:4px;
 	margin:0;
