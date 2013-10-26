@@ -1,6 +1,6 @@
 angular.module('brownie').controller('CardCtrl', [
-    '$scope', 'cardStore',
-    function($scope, cardStore) {
+    '$scope', '$modal', 'cardStore',
+    function($scope, $modal, cardStore) {
         var scrollToBottom = function() {
             $("html, body").animate({ scrollTop: $(document).height() }, 1000);
         }
@@ -22,7 +22,10 @@ angular.module('brownie').controller('CardCtrl', [
 
         cardStore.getCards();
         $scope.card = cardStore.cards[0];
-
+        $scope.card = {
+        		name:"New card",
+        		items:[]
+        }
         // FIXME quick fix, we should rework directive
         $scope.sortableOptions = {
             handle: ".resize"
@@ -53,21 +56,54 @@ angular.module('brownie').controller('CardCtrl', [
 
 
         $scope.addContact = function() {
+        	/*
             var addressbook;
 
             var sortingMode =  new tizen.SortMode('displayName', 'ASC');
             try {
                 tizen.contact.find(function(contacts) {
                     console.log(contacts);
+                    openContactsModal(contacts)
                 }, function(error) {
                     console.log(errors)
                 },
                 null, sortingMode);
             } catch (err) {
-                console.log( 'The following error occurred while finding: ' +  err.name);
-            }
+                console.log( 'The following error occurred while finding: ' +  err);
+            }	
+            */
+        	openContactsModal([{
+        		displayName:"Olivier Leplus",
+        		displayContactId:"1"
+        	},
+        	{
+        		displayName:"Jimmy Ma",
+        		displayContactId:"2"
+        	},
+        	{
+        		displayName:"BeMyApp",
+        		displayContactId:"3"
+        	}]);
+        }
+        
+        function openContactsModal(contacts) {
 
-            //tizen.contact.getAddressBooks(addressbooksuccess, addressbookfail);	
+            var modalInstance = $modal.open({
+              templateUrl: 'views/contactpopup.html',
+              controller: ModalInstanceCtrl,
+              resolve: {
+                items: function () {
+                  return contacts;
+                }
+              }
+            });
+            
+            modalInstance.result.then(function (selectedItems) {
+                $scope.selected = selectedItems;
+          	  console.log("yeah!");
+                console.log(selectedItems);
+              }, function () {
+              });
         }
     }
 ]);
