@@ -5,7 +5,6 @@ angular.module('brownie').factory('cardStore', [
 
             getCards: function() {
                 data = localStorage.getItem("cards");
-                console.log(data);
                 if (data !== null) {
                     cardStore.cards = angular.fromJson(data);
                 } else {
