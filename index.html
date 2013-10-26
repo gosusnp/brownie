@@ -19,59 +19,31 @@
 			<span class=navbar-brand>Brownie</span>
 		</div>
 	</nav>
-		<!--div ng-controller="CardCtrl">
-			<div class="card">
-				<div class="items">
-					<div class="item" ng-repeat="item in card.items">
-						<div ng-if="item.type == 'todo'"><todo></todo></div>
-						<div ng-if="item.type == 'canvas'"><h2>{{item.type}}</h2></div>
-						<div ng-if="item.type == 'note'"><note></note></div>
-					</div>
-				</div>
-			</div>
-                        <input type="text" ng-model="newItemType"></text>
-                        <i class="fa fa-plus" ng-click="addItem(newItemType)"></i>
-			<pre>
-				{{items |json}}
-			</pre>
-                </div-->
-	<div ng-controller="MainCtrl">
-
-		<div class="card">
-			<div class="items">
-				<div ui-sortable="sortableOptions" ng-model="items">
-					<div class="item" ng-repeat="item in items">
-						<div ng-if="item.type == 'todo'"><todo></todo></div>
-						<div ng-if="item.type == 'canvas'"><mycanvas></mycanvas></div>
-						<div ng-if="item.type == 'note'"><note></note></div>
-					</div>
-				</div>
-				<!-- 
-				<div class="item" ng-repeat="item in items">
-					<div ng-if="item.type == 'todo'"><todo></todo></div>
-					<div ng-if="item.type == 'canvas'"><mycanvas></mycanvas></div>
-					<div ng-if="item.type == 'note'"><note></note></div>
-				</div>
-				 -->
-			</div>
-			<div class="add-item btn-group dropup">
-				<!--<button class="btn btn-link">Dropup</button>
-				<button class="btn dropdown-toggle" data-toggle="dropdown">
-					<span class="caret"></span>
-				</button>-->
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-plus"></i></a>
-				<ul class="dropdown-menu pull-right">
-					<li><a href="#" ng-click="addNote()"><i class="fa fa-file-text-o"></i> Note</a></li>
-					<li><a href="#" ng-click="addTodo()"><i class="fa fa-check-square-o"></i> Checklist</a></li>
-					<li><a href="#" ng-click="addCanvas()"><i class="fa fa-pencil-square-o"></i> Draw</a></li>
-					<li><a href="#" ng-click="addPhoto()"><i class="fa fa-camera"></i> Photo</a></li>
-					<li><a href="#" ng-click="addContat()"><i class="fa fa-user"></i> Contact</a></li>
-				</ul>
-			</div>
-		</div>
+        <div ng-controller="CardCtrl">
+            <div class="card">
+                <div class="items">
+                    <div ui-sortable="sortableOptions" ng-model="card.items">
+                        <div class="item" ng-repeat="item in card.items">
+                            <div ng-if="item.type == 'todo'"><todo></todo></div>
+                            <div ng-if="item.type == 'canvas'"><mycanvas></mycanvas></div>
+                            <div ng-if="item.type == 'note'"><note></note></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-item btn-group dropup">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-plus"></i></a>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a href="#" ng-click="addNote()"><i class="fa fa-file-text-o"></i> Note</a></li>
+                        <li><a href="#" ng-click="addTodo()"><i class="fa fa-check-square-o"></i> Checklist</a></li>
+                        <li><a href="#" ng-click="addCanvas()"><i class="fa fa-pencil-square-o"></i> Draw</a></li>
+                        <li><a href="#" ng-click="addPhoto()"><i class="fa fa-camera"></i> Photo</a></li>
+                        <li><a href="#" ng-click="addContact()"><i class="fa fa-user"></i> Contact</a></li>
+                    </ul>
+                </div>
+            </div>
 		<div id="bottom"></div>
 		<pre>
-			{{items |json}}
+			{{card.items |json}}
 		</pre>
 	</div>   
 
@@ -81,6 +53,8 @@
 	<script src="js/vendor/bootstrap.min.js"></script>
 	<script src="js/vendor/sortable.js"></script>
 	<script src="js/brownie.js"></script>
+	<script src="js/controllers/card.js"></script>
+	<script src="js/services/card_store.js"></script>
 	<script src="js/directives/contenteditable.js"></script>
 	<script src="js/directives/drawing.js"></script>
 	<script src="js/directives/canvas.js"></script>

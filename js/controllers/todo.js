@@ -14,7 +14,11 @@ angular.module('brownie').controller('TodoCtrl', [
       	    angular.forEach($scope.item.tasks, function(task) {
       	      count += task.done ? 0 : 1;
       	    });
-      	    var progression = Math.floor((($scope.item.tasks.length - count) / ($scope.item.tasks.length)) * 100)
+
+            var progression = 0;
+            if ($scope.item.tasks) {
+                progression = Math.floor((($scope.item.tasks.length - count) / ($scope.item.tasks.length)) * 100)
+            }
       	    return progression;
 	};
 

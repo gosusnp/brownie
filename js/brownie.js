@@ -55,44 +55,6 @@ app.controller('MainCtrl', [
 		{type: 'canvas', name:'Picasso style ^^'},
 		];
 		
-		$scope.sortableOptions = {
-				handle: ".resize"
-					};
-		
-		$scope.addNote = function() {
-			console.log("Add new note !");
-			$scope.items.push(
-			{
-				type:'note',
-				text:''
-			});
-			scrollToBottom();
-		}
-		
-		$scope.addTodo = function() {
-			console.log("Add new todo !");
-			$scope.items.push(
-					{
-						type:'todo',
-						name:'',
-						tasks: []
-					});
-			scrollToBottom();
-		}
-		
-		$scope.addCanvas = function() {
-			console.log("Add new canvas !");
-			$scope.items.push(
-					{
-						type:'canvas'
-					});
-			scrollToBottom();
-		}
-		
-		function scrollToBottom() {
-			$("html, body").animate({ scrollTop: $(document).height() }, 1000);
-		}
-		
 		/* PHOTOS */
 		$scope.addPhoto = function() {
 			console.log("Add new photo !");
