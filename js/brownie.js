@@ -9,7 +9,28 @@ var init = function () {
 // window.onload can work without <body onload="">
 window.onload = init;
 
-var app = angular.module('brownie', ['ui.sortable']);
+var app = angular.module('brownie', [
+    'ui.router',
+    'ui.sortable',
+]);
+
+app.config(function($stateProvider, $urlRouterProvider) {
+    // For any unmatched url, redirect to /
+    $urlRouterProvider.otherwise("/cards");
+
+    // Now set up the states
+    $stateProvider
+    .state('cards-list', {
+        url: "/cards",
+        controller: 'CardListCtrl',
+        templateUrl: 'views/card_list.html',
+    })
+    .state('cards-get', {
+        url: "/cards/:id",
+        controller: 'CardCtrl',
+        templateUrl: 'views/card.html',
+    })
+});
 
 app.controller('MainCtrl', [
 	'$scope', '$location', '$anchorScroll',

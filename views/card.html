@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="items">
+        <div ui-sortable="sortableOptions" ng-model="card.items">
+            <div class="item" ng-repeat="item in card.items">
+                <div ng-if="item.type == 'todo'"><todo></todo></div>
+                <div ng-if="item.type == 'canvas'"><mycanvas></mycanvas></div>
+                <div ng-if="item.type == 'note'"><note></note></div>
+            </div>
+        </div>
+    </div>
+    <div class="add-item btn-group dropup">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-plus"></i></a>
+        <ul class="dropdown-menu pull-right">
+            <li><a href="#" ng-click="addNote()"><i class="fa fa-file-text-o"></i> Note</a></li>
+            <li><a href="#" ng-click="addTodo()"><i class="fa fa-check-square-o"></i> Checklist</a></li>
+            <li><a href="#" ng-click="addCanvas()"><i class="fa fa-pencil-square-o"></i> Draw</a></li>
+            <li><a href="#" ng-click="addPhoto()"><i class="fa fa-camera"></i> Photo</a></li>
+            <li><a href="#" ng-click="addContact()"><i class="fa fa-user"></i> Contact</a></li>
+        </ul>
+    </div>
+</div>
+<div id="bottom"></div>
+<pre>
+        {{card.items |json}}
+</pre>

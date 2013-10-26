@@ -1,0 +1,9 @@
+<div class="card">
+    <div ng-repeat="card in cards">
+        <div class="items">
+            <div class="item">
+                <a ui-sref="cards-get({id: $index})">Go {{card.name}}</a>
+            </div>
+        </div>
+    </div>
+</div>
