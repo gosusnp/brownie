@@ -19,11 +19,12 @@
 			</div>
 		</nav>
 		<div ng-controller="MainCtrl">
+		
 			<div class="card">
 				<div class="items">
 					<div class="item" ng-repeat="item in items">
 						<div ng-if="item.type == 'todo'"><todo></todo></div>
-						<div ng-if="item.type == 'canvas'"><h2>{{item.type}}</h2></div>
+						<div ng-if="item.type == 'canvas'"><canvas style="border solid 1px red;" width="500" height="300" id="canvas" drawing></div>
 						<div ng-if="item.type == 'note'"><note></note></div>
 					</div>
 				</div>
@@ -36,6 +37,7 @@
 		<script src="js/vendor/angular.min.js"></script>
 		<script src="js/brownie.js"></script>
 		<script src="js/directives/contenteditable.js"></script>
+		<script src="js/directives/drawing.js"></script>
 		<script src="js/directives/note.js"></script>
 		<script src="js/controllers/note.js"></script>
 		<script src="js/directives/todo.js"></script>
