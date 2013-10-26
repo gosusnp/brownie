@@ -1,8 +1,8 @@
 <div class="todo ui piled segment">
-	<i class="resize fa fa-resize-vertical"></i> <span contenteditable="true" ng-model="item.name"></span><br />
+	<i class="resize fa fa-resize-vertical"></i> <span class="title" contenteditable="true" ng-model="item.name"></span><br />
 	<ul class="contacts">
 		<div ng-if="edit">
-			<li ng-repeat="contact in contacts">
+			<li ng-repeat="contact in item.contacts">
 				<!--<img ng-src="{{contact.photoURI}}" />-->
 				<img class="avatar" src="http://zoubda.free.fr/olivier/bemyappTizen/{{contact.displayContactId}}.png" />
 				<span>{{contact.displayName}}</span>
@@ -10,13 +10,13 @@
 			</li>
 		</div>
 		<div ng-if="!edit">
-			<li ng-repeat="contact in contacts" ng-if="contact.selected">
+			<li ng-repeat="contact in item.contacts" ng-if="contact.selected">
 				<!--<img ng-src="{{contact.photoURI}}" />-->
 				<img class="avatar" src="http://zoubda.free.fr/olivier/bemyappTizen/{{contact.displayContactId}}.png" />
 				<span>{{contact.displayName}}</span>
 			</li>
 		</div>
-		<a ng-click="changestatus()">edit</a>
+		<a style="float:right;" ng-click="changestatus()"><span ng-if="!edit">Edit</span><span ng-if="edit">Validate</span></a>
 	</ul>
 </div>
 

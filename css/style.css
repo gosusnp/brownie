@@ -104,6 +104,14 @@ ul.contacts img.avatar {
 	margin:0;
 }
 
+.addtask {
+	margin-bottom:1em;
+}
+
+.card .title {
+	font-size:1.6em;
+}
+
 /* FROM SEMANTIC-UI */
 .ui.piled.segment {
 	margin: 2em 0em;
@@ -149,7 +157,6 @@ ul.contacts img.avatar {
 .ui.segment:after {
 	clear: both;
 }
-
 
 element.style {
 z-index: 1050;

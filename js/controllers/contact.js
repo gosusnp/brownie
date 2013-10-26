@@ -1,20 +1,25 @@
 angular.module('brownie').controller('ContactCtrl', [
 	'$scope',
 	function($scope) {
-		$scope.edit = true;
+		$scope.edit = false;
+		/*
 		$scope.contacts = [
 		{
 			displayName:"Jimmy Ma",
-			displayContactId:"2"
+			displayContactId:"2",
+			selected:false
 		},
 		{
 			displayName:"Olivier Leplus",
-			displayContactId:"1"
+			displayContactId:"1",
+			selected:false
 		},
 		{
 			displayName:"BeMyApp",
-			displayContactId:"3"
+			displayContactId:"3",
+			selected:false
 		}];
+		*/
 		console.log($scope.contacts);
 		
 		$scope.changestatus = function() {

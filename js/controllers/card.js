@@ -9,7 +9,6 @@ angular.module('brownie').controller('CardCtrl', [
             $scope.card.items.push(item);
             scrollToBottom();
         }
-
         $scope.addNote = function() {
             $scope.addItem({type: 'note', text: ''});
         }
@@ -53,7 +52,23 @@ angular.module('brownie').controller('CardCtrl', [
 
 
         $scope.addContact = function() {
-        	$scope.addItem({type:'contact', title:'', contacts:[]});
+        	$scope.addItem({type:'contact', title:'', contacts:[
+        	                                	           		{
+        	                                	           			displayName:"Jimmy Ma",
+        	                                	           			displayContactId:"2",
+        	                                	           			selected:false
+        	                                	           		},
+        	                                	           		{
+        	                                	           			displayName:"Olivier Leplus",
+        	                                	           			displayContactId:"1",
+        	                                	           			selected:false
+        	                                	           		},
+        	                                	           		{
+        	                                	           			displayName:"BeMyApp",
+        	                                	           			displayContactId:"3",
+        	                                	           			selected:false
+        	                                	           		}]});
+        	
         	/*
             var addressbook;
 
