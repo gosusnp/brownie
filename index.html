@@ -14,9 +14,10 @@
 </head>
 
 <body ng-app="brownie">
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavCtrl">
 		<div class="navbar-header">
-			<span class=navbar-brand>Brownie</span>
+                    <span class=navbar-brand>Brownie</span>
+                    <button class="btn navbar-btn navbar-right" ng-click="save()">save</button>
 		</div>
 	</nav>
         <div ng-controller="CardCtrl">
@@ -53,9 +54,11 @@
 	<script src="js/vendor/bootstrap.min.js"></script>
 	<script src="js/vendor/sortable.js"></script>
 	<script src="js/brownie.js"></script>
+	<script src="js/controllers/nav.js"></script>
 	<script src="js/controllers/card.js"></script>
 	<script src="js/services/card_store.js"></script>
 	<script src="js/directives/contenteditable.js"></script>
+	<script src="js/directives/preventdefault.js"></script>
 	<script src="js/directives/drawing.js"></script>
 	<script src="js/directives/canvas.js"></script>
 	<script src="js/directives/fill_width.js"></script>
