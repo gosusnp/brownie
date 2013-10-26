@@ -12,16 +12,20 @@
 	</head>
 	
 	<body ng-app="brownie">
-		<nav class="navbar navbar-default">
+		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="navbar-header">
 				<span class=navbar-brand>Brownie</span>
 			</div>
 		</nav>
 		<div ng-controller="MainCtrl">
-			<div ng-repeat="item in items">
-				<div ng-if="item.type == 'todo'"><todo></todo></div>
-				<div ng-if="item.type == 'canvas'"><h2>{{item.type}}</h2></div>
-				<div ng-if="item.type == 'note'"><note></note></div>
+			<div class="card">
+				<div class="items">
+					<div class="item" ng-repeat="item in items">
+						<div ng-if="item.type == 'todo'"><todo></todo></div>
+						<div ng-if="item.type == 'canvas'"><h2>{{item.type}}</h2></div>
+						<div ng-if="item.type == 'note'"><note></note></div>
+					</div>
+				</div>
 			</div>
 			<pre>
 				{{items |json}}

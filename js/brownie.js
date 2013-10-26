@@ -15,30 +15,38 @@ app.controller('MainCtrl', [
     '$scope',
     function($scope) {
         $scope.items = [
-            {type: 'todo', name:"My ToDo", tasks: [{
-            	text:"a",
+            {type: 'todo', name:"Ménage", tasks: [{
+            	text:"Faire à manger",
             	done:true,
             },
             {
-            	text:"b",
+            	text:"Faire la vaisselle",
             	done:false,
             },
             {
-            	text:"c",
+            	text:"Laver le linge",
             	done:false,
             }
             ]},
-            {type: 'todo', name:"Yet Another ToDo list ^^", tasks: [
+            {type: 'todo', name:"Salade de saison (pour 2 personnes)", tasks: [
 {
-	text:"a",
+	text:"2 Tomates",
 	done:false,
 },
 {
-	text:"b",
+	text:"2 oeufs",
 	done:false,
 },
 {
-	text:"c",
+	text:"salade",
+	done:false,
+},
+{
+	text:"poivrons rouge",
+	done:false,
+},
+{
+	text:"avocat",
 	done:false,
 }
                                                                     ]},
