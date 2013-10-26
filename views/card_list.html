@@ -1,9 +1,12 @@
-<div class="contact">
-    <div ng-repeat="contact in contacts">
+<div class="card">
+    <div ng-repeat="card in cards">
         <div class="items">
-            <div class="item">
+            <div class="item ui piled segment">
                 <a ui-sref="cards-get({id: $index})">Go {{card.name}}</a>
             </div>
         </div>
+    </div>
+    <div class="container">
+        <i class="actionable fa fa-plus pull-right" ng-click="addCard()"></i>
     </div>
 </div>
