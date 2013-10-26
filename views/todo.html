@@ -7,7 +7,7 @@
 	</div>
 	<ul>
 		<li ng-repeat="task in item.tasks">
-			<input type="checkbox" ng-model="task.done">
+			<i class="fa checkbox" ng-class="task.done && 'fa-check-square-o' || 'fa-square-o'" ng-click="task.done = !task.done"></i>
 			<span contenteditable="true" ng-model="task.text" class="done-{{task.done}}"></span>
 		</li>
 	</ul>

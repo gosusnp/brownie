@@ -1591,9 +1591,6 @@ textarea.form-control {
 .checkbox {
   display: block;
   min-height: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-left: 20px;
   vertical-align: middle;
 }
 .radio label,
