@@ -53,6 +53,7 @@ angular.module('brownie').controller('CardCtrl', [
 
 
         $scope.addContact = function() {
+        	$scope.addItem({type:'contact', title:'', contacts:[]});
         	/*
             var addressbook;
 
@@ -69,6 +70,7 @@ angular.module('brownie').controller('CardCtrl', [
                 console.log( 'The following error occurred while finding: ' +  err);
             }	
             */
+        	/*
         	openContactsModal([{
         		displayName:"Olivier Leplus",
         		displayContactId:"1"
@@ -81,6 +83,7 @@ angular.module('brownie').controller('CardCtrl', [
         		displayName:"BeMyApp",
         		displayContactId:"3"
         	}]);
+        	*/
         }
         
         function openContactsModal(contacts) {

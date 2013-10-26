@@ -1,10 +1,9 @@
-<div class="card">
-    <div ng-repeat="card in cards">
+<div class="contact">
+    <div ng-repeat="contact in contacts">
         <div class="items">
             <div class="item">
                 <a ui-sref="cards-get({id: $index})">Go {{card.name}}</a>
             </div>
         </div>
     </div>
-    <button ng-click="addCard()">Add card</button>
 </div>

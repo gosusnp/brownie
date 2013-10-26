@@ -55,6 +55,31 @@ ul, li {
 	float:right;
 	cursor:move;
 }
+
+/* CONTACT */
+ul.contacts{
+	width:100%;
+	list-style-type:none;
+	background-color:#fff;
+}
+
+ul.contacts li {
+	border-bottom:solid 1px #e6e6e6;
+}
+
+ul.contacts li:last-child {
+	border-bottom:none;
+}
+
+ul.contacts li .selection {
+	float:right;
+}
+
+ul.contacts img.avatar {
+	width:3em;
+}
+/* ! CONTACT */
+
 /* TODO item */
 .todo .done-true {
 	text-decoration: line-through;

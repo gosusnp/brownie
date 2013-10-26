@@ -6,6 +6,7 @@ var init = function () {
     		tizen.application.getCurrentApplication().exit();
     });
 };
+
 // window.onload can work without <body onload="">
 window.onload = init;
 var app = angular.module('brownie', [
@@ -28,6 +29,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
         url: "/cards/:id",
         controller: 'CardCtrl',
         templateUrl: 'views/card.html',
+    })
+    .state('contacts-list', {
+        url: "/contacts",
+        controller: 'ContactListCtrl',
+        templateUrl: 'views/contact_list.html',
     })
 });
 
