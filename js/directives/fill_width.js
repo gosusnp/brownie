@@ -1,9 +1,7 @@
 angular.module('brownie')
 .run(['$rootScope', '$window', function($rootScope,$window) {
-	$rootScope.windowWidth = $window.outerWidth;
 	angular.element($window).bind('resize',function(){
-		$rootScope.windowWidth = $window.innerWidth;
-		$rootScope.$apply('windowWidth');
+                $('.fill-width-resize').resize();
 	});
 }])
 .directive('fillWidth', [
@@ -11,10 +9,21 @@ angular.module('brownie')
     function($rootScope) {
         return {
             link: function(scope, iElement, iAttrs) {
+                var parent = iElement.parent();
+                parent.addClass('fill-width-resize');
+                scope.width = parent.width();
+
+                parent.bind('resize', function(e) {
+                    scope.width = parent.width();
+                    scope.$apply('width');
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return true;
+                });
                 var resize = function() {
-                    iElement.attr('width', parseInt($rootScope.windowWidth) * 0.9);
+                    iElement.attr('width', scope.width);
                 };
-                $rootScope.$watch('windowWidth', function(newVal, oldVal) {
+                scope.$watch('width', function(newVal, oldVal) {
                     resize();
                 });
                 resize();
