@@ -1,6 +1,6 @@
 angular.module('brownie').controller('CardCtrl', [
-    '$scope', '$modal', 'cardStore',
-    function($scope, $modal, cardStore) {
+    '$scope', '$stateParams', '$modal', 'cardStore',
+    function($scope, $stateParams, $modal, cardStore) {
         var scrollToBottom = function() {
             $("html, body").animate({ scrollTop: $(document).height() }, 1000);
         }
@@ -21,13 +21,8 @@ angular.module('brownie').controller('CardCtrl', [
         }
 
         cardStore.getCards();
-        $scope.card = cardStore.cards[0];
-        /*
-        $scope.card = {
-        		name:"New card",
-        		items:[]
-        }
-        */
+        $scope.card = cardStore.cards[$stateParams.id];
+
         // FIXME quick fix, we should rework directive
         $scope.sortableOptions = {
             handle: ".resize"
