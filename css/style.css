@@ -29,11 +29,21 @@ ul, li {
 
 /* CARD */
 
-
-
 .card .items {
 	margin: 3%;
 }
+
+.card .add-item {
+	font-size: 3em;
+	position: fixed;
+	right: 7px;
+	bottom: 0;
+}
+
+.card .add-item ul{
+	font-size: 0.5em;
+}
+
 
 .card .items .item {
 }
@@ -57,7 +67,6 @@ ul, li {
 	height:4px;
 	margin:0;
 }
-
 
 /* FROM SEMANTIC-UI */
 .ui.piled.segment {
