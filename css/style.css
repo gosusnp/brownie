@@ -18,6 +18,9 @@ body {
 .checkbox {
 	font-size: 1.5em;
 }
+.clickable {
+	cursor: pointer;
+}
 ul, li {
 	margin:0;
 	padding:0;
