@@ -12,7 +12,7 @@ body {
 }
 
 .actionable {
-	font-size: 1.5em;
+	font-size: 2em;
 	cursor: pointer;
 }
 .checkbox {
@@ -78,46 +78,46 @@ ul, li {
 
 /* FROM SEMANTIC-UI */
 .ui.piled.segment {
-margin: 2em 0em;
--ms-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
--o-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
+	margin: 2em 0em;
+	-ms-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
+	-o-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
+	box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
 }
 .ui.segment {
-position: relative;
-background-color: #FFFFFF;
-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-padding: 1em;
-box-sizing: border-box;
+	position: relative;
+	background-color: #FFFFFF;
+	box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+	padding: 1em;
+	box-sizing: border-box;
 }
 
 .ui.piled.segment:before {
--webkit-transform: rotate(-1.2deg);
--ms-transform: rotate(-1.2deg);
-transform: rotate(-1.2deg);
-top: 0;
-z-index: -2;
+	-webkit-transform: rotate(-1.2deg);
+	-ms-transform: rotate(-1.2deg);
+	transform: rotate(-1.2deg);
+	top: 0;
+	z-index: -2;
 }
 .ui.piled.segment:after, .ui.piled.segment:before {
-background-color: #FFFFFF;
-visibility: visible;
-content: "";
-display: block;
-height: 100%;
-left: -1px;
-position: absolute;
-width: 100%;
-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+	background-color: #FFFFFF;
+	visibility: visible;
+	content: "";
+	display: block;
+	height: 100%;
+	left: -1px;
+	position: absolute;
+	width: 100%;
+	box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .ui.piled.segment:after {
--webkit-transform: rotate(1.2deg);
--ms-transform: rotate(1.2deg);
-transform: rotate(1.2deg);
-top: 0;
-z-index: -1;
+	-webkit-transform: rotate(1.2deg);
+	-ms-transform: rotate(1.2deg);
+	transform: rotate(1.2deg);
+	top: 0;
+	z-index: -1;
 }
 
 .ui.segment:after {
-clear: both;
+	clear: both;
 }
