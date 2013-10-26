@@ -1,7 +1,16 @@
 angular.module('brownie').directive('preventDefault', function() {
-    return function(scope, element, attrs) {
-        $(element).click(function(event) {
-            event.preventDefault();
-        });
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            element.bind('touchend', function(e) {
+                e.preventDefault();
+            });
+            element.bind('touchstart', function(e) {
+                e.preventDefault();
+            });
+            element.bind('touchmove', function(e) {
+                e.preventDefault();
+            });
+        }
     }
 })

@@ -11,22 +11,39 @@ angular.module('brownie').directive("drawing", [
                 // variable that decides if something should be drawn on mousemove
                 var drawing = false;
                 // the last coordinates before the current move
-                var lastX;
-                var lastY;
+                var lastX,
+                    lastY,
+                    currentX,
+                    currentY;
 
-                element.bind('mousedown', function(event){
-                    lastX = event.offsetX;
-                    lastY = event.offsetY;
+                var getX = function (event) {
+                    if(event.type.indexOf("touch") > -1) {
+                        return event.targetTouches[0].pageX;
+                    } else {
+                        return event.offsetX;
+                    }
+                };
+                var getY = function (event) {
+                    if(event.type.indexOf("touch") > -1) {
+                        return event.targetTouches[0].pageY;
+                    } else {
+                        return event.offsetY;
+                    }
+                };
+                var moveStart = function(event) {
+                    event.preventDefault();
+                    lastX = getX(event);
+                    lastY = getY(event);
                     // begins new line
                     ctx.beginPath();
                     drawing = true;
-                });
-
-                element.bind('mousemove', function(event){
-                    if(drawing){
+                };
+                var moveContinue = function(event) {
+                    event.preventDefault();
+                    if (drawing) {
                         // get current mouse position
-                        currentX = event.offsetX;
-                        currentY = event.offsetY;
+                        currentX = getX(event);
+                        currentY = getY(event);
 
                         draw(lastX, lastY, currentX, currentY);
 
@@ -34,12 +51,23 @@ angular.module('brownie').directive("drawing", [
                         lastX = currentX;
                         lastY = currentY;
                     }
-                });
-
-                element.bind('mouseup', function(event){
+                };
+                var moveEnd = function(event) {
+                    event.preventDefault();
                     // stop drawing
                     drawing = false;
-                });
+                };
+
+                element[0].addEventListener('touchstart', moveStart, false);
+                element[0].addEventListener('touchmove', moveContinue, false);
+                element[0].addEventListener('touchcancel', moveEnd, false);
+                element[0].addEventListener('touchend', moveEnd, false);
+                element[0].addEventListener('touchleave', moveEnd, false);
+
+                element.bind('mousedown', moveStart);
+                element.bind('mousemove', moveContinue);
+                element.bind('mouseup', moveEnd);
+
                 // canvas reset
                 function reset(){
                     element[0].width = element[0].width;
