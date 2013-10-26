@@ -6,6 +6,7 @@ angular.module('brownie').controller('CardListCtrl', [
 
         $scope.addCard = function() {
             cardStore.cards.push({items: []});
+            cardStore.saveCards();
         }
     }
 ]);
