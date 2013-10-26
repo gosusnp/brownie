@@ -1,6 +1,7 @@
 angular.module('brownie').directive("drawing", function(){
   return {
     restrict: "A",
+    controller: 'CanvasCtrl',
     link: function(scope, element){
       var ctx = element[0].getContext('2d');      
       // variable that decides if something should be drawn on mousemove
