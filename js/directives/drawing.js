@@ -14,12 +14,33 @@ angular.module('brownie').directive("drawing", [
                 var lastX;
                 var lastY;
 
+                element.bind('touchstart', function(event){
+                    lastX = event.offsetX;
+                    lastY = event.offsetY;
+                    // begins new line
+                    ctx.beginPath();
+                    drawing = true;
+                });
                 element.bind('mousedown', function(event){
                     lastX = event.offsetX;
                     lastY = event.offsetY;
                     // begins new line
                     ctx.beginPath();
                     drawing = true;
+                });
+
+                element.bind('touchmove', function(event){
+                    if(drawing){
+                        // get current mouse position
+                        currentX = event.offsetX;
+                        currentY = event.offsetY;
+
+                        draw(lastX, lastY, currentX, currentY);
+
+                        // set current coordinates to last one
+                        lastX = currentX;
+                        lastY = currentY;
+                    }
                 });
 
                 element.bind('mousemove', function(event){
@@ -36,10 +57,15 @@ angular.module('brownie').directive("drawing", [
                     }
                 });
 
+                element.bind('touchend', function(event){
+                    // stop drawing
+                    drawing = false;
+                });
                 element.bind('mouseup', function(event){
                     // stop drawing
                     drawing = false;
                 });
+
                 // canvas reset
                 function reset(){
                     element[0].width = element[0].width;
