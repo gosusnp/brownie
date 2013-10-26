@@ -8,16 +8,15 @@ var init = function () {
 };
 // window.onload can work without <body onload="">
 window.onload = init;
-
 var app = angular.module('brownie', [
     'ui.router',
+    'ui.bootstrap',
     'ui.sortable',
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider) {
     // For any unmatched url, redirect to /
     $urlRouterProvider.otherwise("/cards");
-
     // Now set up the states
     $stateProvider
     .state('cards-list', {
@@ -32,6 +31,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 });
 
+
+/*
 app.controller('MainCtrl', [
 	'$scope', '$location', '$anchorScroll',
 	function($scope,$location,$anchorScroll) {
@@ -76,7 +77,6 @@ app.controller('MainCtrl', [
 		{type: 'canvas', name:'Picasso style ^^'},
 		];
 		
-		/* PHOTOS */
 		$scope.addPhoto = function() {
 			console.log("Add new photo !");
 			var appControl = new tizen.ApplicationControl(
@@ -97,7 +97,6 @@ app.controller('MainCtrl', [
 		function photowhatever() {
 			console.log("whatever...");
 		}
-		/* ! PHOTOS ! */
 	
 		
 		$scope.addContat = function() {
@@ -114,8 +113,7 @@ app.controller('MainCtrl', [
 			  } catch (err) {
 			    console.log( 'The following error occurred while finding: ' +  err.name);
 			  }
-			  
-			//tizen.contact.getAddressBooks(addressbooksuccess, addressbookfail);	
+			  	
 		}
 		
 		function addressbooksuccess(addressbooks) {
@@ -137,3 +135,4 @@ app.controller('MainCtrl', [
 		  }
 	}
 ]);
+*/
