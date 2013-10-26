@@ -1,4 +1,5 @@
 angular.module('brownie').controller('CanvasCtrl', [
-    function() {
+    '$scope',
+    function($scope) {
     }
 ]);
