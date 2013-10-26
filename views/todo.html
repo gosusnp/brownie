@@ -1,14 +1,14 @@
 <div class="todo">
-	<span contenteditable>{{name}}</span><br />
-	<span class="remaining">{{remaining()}} of {{todos.length}} remaining</span>
+	<span contenteditable="true" ng-model="item.name"></span><br />
+	<span class="remaining">{{remaining()}} of {{item.tasks.length}} remaining</span>
 	<div class="progress">
-		<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{progression()}}" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+		<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
 		</div>
 	</div>
 	<ul>
-		<li ng-repeat="item in items">
-			<input type="checkbox" ng-model="todo.done">
-			<span contenteditable class="done-{{todo.done}}">{{todo.text}}</span>
+		<li ng-repeat="task in item.tasks">
+			<input type="checkbox" ng-model="task.done">
+			<span contenteditable="true" ng-model="task.text" class="done-{{task.done}}"></span>
 		</li>
 	</ul>
 </div>

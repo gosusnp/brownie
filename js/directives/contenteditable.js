@@ -1,6 +1,6 @@
 'use strict';
 
-thisApp.directive('contenteditable', function() {
+angular.module('brownie').directive('contenteditable', function() {
 	return {
  		restrict: 'A', // only activate on element attribute
  		require: '?ngModel', // get a hold of NgModelController
