@@ -14,18 +14,20 @@ angular.module('brownie').controller('CardCtrl', [
             $scope.addItem({type: 'note', text: ''});
         }
         $scope.addTodo = function() {
-            $scope.addItem({type: 'todo', name: '', tasks: []});
+            $scope.addItem({type: 'todo', title: '', tasks: []});
         }
         $scope.addCanvas = function() {
-            $scope.addItem({type: 'canvas', img: ''});
+            $scope.addItem({type: 'canvas', title:'', img: ''});
         }
 
         cardStore.getCards();
         $scope.card = cardStore.cards[0];
+        /*
         $scope.card = {
         		name:"New card",
         		items:[]
         }
+        */
         // FIXME quick fix, we should rework directive
         $scope.sortableOptions = {
             handle: ".resize"
@@ -99,8 +101,9 @@ angular.module('brownie').controller('CardCtrl', [
             });
             
             modalInstance.result.then(function (selectedItems) {
-                $scope.selected = selectedItems;
-          	  console.log("yeah!");
+           
+            	$scope.addItem({type: 'contact', title: '', contacts:selectedItems});
+     
                 console.log(selectedItems);
               }, function () {
               });
