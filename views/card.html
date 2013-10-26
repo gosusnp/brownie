@@ -1,4 +1,7 @@
 <div class="card">
+            <div class="item ui segment">
+                <a ui-sref="cards-get({id: $index})">Go {{card.name}}</a>
+            </div>
     <div class="items">
         <div ui-sortable="sortableOptions" ng-model="card.items">
             <div class="item" ng-repeat="item in card.items">
