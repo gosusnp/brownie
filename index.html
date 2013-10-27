@@ -16,10 +16,21 @@
 <body ng-app="brownie">
 	<nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavCtrl">
 		<div class="navbar-header">
-                    <span class=navbar-brand>Brownie</span>
+                    <span class="navbar-brand">Brownie</span>
                     <button style="float: right; margin-right: 5px;" class="btn navbar-btn navbar-right" ng-click="save()">save</button>
 		</div>
 	</nav>
+        <div id="notifications" ng-controller="NotificationsCtrl">
+            <ul>
+                <li ng-class="notif.class" ng-repeat="notif in notifications">
+                <span ng-bind="notif.text"></span>
+                <span class="pull-right">
+                    <i class="clickable fa fa-undo" ng-if="notif.canUndo()" ng-click="notif.undo()"></i>
+                    <i class="clickable fa fa-times" ng-click="remove(notif)"></i>
+                </span>
+                </li>
+            </ul>
+        </div>
         <div ui-view></div>
 
 	<script src="js/vendor/jquery-2.0.3.min.js"></script>
@@ -34,6 +45,8 @@
 	<script src="js/controllers/card.js"></script>
 	<script src="js/controllers/card_list.js"></script>
 	<script src="js/services/card_store.js"></script>
+	<script src="js/services/notification.js"></script>
+	<script src="js/controllers/notification.js"></script>
 	
 	<script src="js/directives/contenteditable.js"></script>
 	<script src="js/directives/preventdefault.js"></script>
