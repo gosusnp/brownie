@@ -1,8 +1,9 @@
 <div class="card">
     <div ng-repeat="card in cards">
         <div class="items">
-            <div class="item ui piled segment">
-                <a ui-sref="cards-get({id: $index})">{{card.name}}</a>
+            <div class="todo item ui piled segment">
+                <div><a ui-sref="cards-get({id: $index})">{{card.name}}</a></div>
+                <span class="remaining">{{card.items.length}} item<span ng-show="card.items.length > 1">s</span></span>
             </div>
         </div>
     </div>
