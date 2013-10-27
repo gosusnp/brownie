@@ -5,4 +5,6 @@
     <icon src="icon.png"/>
     <name>brownie</name>
     <tizen:privilege name="http://tizen.org/privilege/contact.read"/>
+    <tizen:privilege name="http://tizen.org/privilege/mediacapture"/>
+    <tizen:privilege name="http://tizen.org/privilege/application.launch"/>
 </widget>

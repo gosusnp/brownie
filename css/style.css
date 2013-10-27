@@ -80,6 +80,10 @@ ul.contacts img.avatar {
 }
 /* ! CONTACT */
 
+.photo .date {
+	font-size:0.7em;
+	color:#ABABAB;
+}
 /* TODO item */
 .todo .done-true {
 	text-decoration: line-through;

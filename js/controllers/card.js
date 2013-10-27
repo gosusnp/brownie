@@ -13,10 +13,10 @@ angular.module('brownie').controller('CardCtrl', [
             $scope.addItem({type: 'note', text: ''});
         }
         $scope.addTodo = function() {
-            $scope.addItem({type: 'todo', title: '', tasks: []});
+            $scope.addItem({type: 'todo', title: 'Title', tasks: []});
         }
         $scope.addCanvas = function() {
-            $scope.addItem({type: 'canvas', title:'', img: ''});
+            $scope.addItem({type: 'canvas', title:'Title', img: ''});
         }
 
         cardStore.getCards();
@@ -34,19 +34,22 @@ angular.module('brownie').controller('CardCtrl', [
                     "http://tizen.org/appcontrol/operation/create_content",
                     null,
                     "image/jpg");
-            tizen.application.launchAppControl(appControl, null, photosuccess, photofail, photowhatever);
+            //izen.application.launchAppControl(appControl, null, photosuccess, photofail, photowhatever);
+            tizen.application.launchAppControl(appControl, null,
+                    function(){console.log("launch appControl succeeded");}, 
+                    function(e){console.log("launch appControl failed. Reason: " + e.name);}, 
+                    appControlReplyCB);
         }
-
-        function photosuccess(photos) {
-            console.log("picture taken !");
-        }
-
-        function photofail(error) {
-            console.log("fail taking picture");
-        }
-
-        function photowhatever() {
-            console.log("whatever...");
+        
+        var appControlReplyCB = 
+        { 
+           /* Reply is sent if the requested operation is successfully delivered */
+           onsuccess: function(reply) 
+           { 
+        	  var d =new Date();
+              $scope.addItem({type: 'photo', title:'Title', url: reply[0].value[0], date:d });
+              $scope.$apply();
+           } 
         }
         /* ! PHOTOS ! */
 
@@ -56,7 +59,7 @@ angular.module('brownie').controller('CardCtrl', [
         		var sortingMode =  new tizen.SortMode('displayName', 'ASC');
                 tizen.contact.find(function(contacts) {
                     console.log(contacts);
-                    $scope.addItem({type:'contact', title:'', contacts:contacts});
+                    $scope.addItem({type:'contact', title:'Title', contacts:contacts});
                     $scope.$apply();
                 }, function(error) {
                     console.log(errors)
@@ -113,27 +116,6 @@ angular.module('brownie').controller('CardCtrl', [
         		displayContactId:"3"
         	}]);
         	*/
-        }
-        
-        function openContactsModal(contacts) {
-
-            var modalInstance = $modal.open({
-              templateUrl: 'views/contactpopup.html',
-              controller: ModalInstanceCtrl,
-              resolve: {
-                items: function () {
-                  return contacts;
-                }
-              }
-            });
-            
-            modalInstance.result.then(function (selectedItems) {
-           
-            	$scope.addItem({type: 'contact', title: '', contacts:selectedItems});
-     
-                console.log(selectedItems);
-              }, function () {
-              });
         }
     }
 ]);
