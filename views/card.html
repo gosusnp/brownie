@@ -39,6 +39,7 @@
                 <div ng-if="item.type == 'note'"><note></note></div>
                 <div ng-if="item.type == 'contact'"><contact></contact></div>
                 <div ng-if="item.type == 'photo'"><photo></photo></div>
+                <div ng-if="item.type == 'video'"><bvideo></bvideo></div>
             </div>
         </div>
     </div>
@@ -49,6 +50,7 @@
             <li><a class="clickable" ng-click="addTodo()"><i class="fa fa-check-square-o"></i> Checklist</a></li>
             <li><a class="clickable" ng-click="addCanvas()"><i class="fa fa-pencil-square-o"></i> Draw</a></li>
             <li><a class="clickable" ng-click="addPhoto()"><i class="fa fa-camera"></i> Photo</a></li>
+            <li><a class="clickable" ng-click="addVideo()"><i class="fa fa-video-camera"></i> Video</a></li>
             <li><a class="clickable" ng-click="addContact()"><i class="fa fa-user"></i> Contact</a></li>
         </ul>
     </div>

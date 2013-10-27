@@ -34,25 +34,57 @@ angular.module('brownie').controller('CardCtrl', [
                     "http://tizen.org/appcontrol/operation/create_content",
                     null,
                     "image/jpg");
-            //izen.application.launchAppControl(appControl, null, photosuccess, photofail, photowhatever);
             tizen.application.launchAppControl(appControl, null,
-                    function(){console.log("launch appControl succeeded");}, 
-                    function(e){console.log("launch appControl failed. Reason: " + e.name);}, 
-                    appControlReplyCB);
+                    function(){
+            	console.log("launch appControl succeeded");
+            	}, 
+                function(e){
+            		console.log("launch appControl failed. Reason: " + e.name);
+            	}, 
+                appControlReplyPhoto);
         }
         
-        var appControlReplyCB = 
+        var appControlReplyPhoto = 
         { 
            /* Reply is sent if the requested operation is successfully delivered */
            onsuccess: function(reply) 
            { 
-        	  var d =new Date();
+        	  var d = new Date();
               $scope.addItem({type: 'photo', title:'Title', url: reply[0].value[0], date:d });
               $scope.$apply();
            } 
         }
         /* ! PHOTOS ! */
-
+        
+        /* VIDEO */
+        $scope.addVideo = function() {
+            console.log("Add new video !");
+            var appControl = new tizen.ApplicationControl(
+                    "http://tizen.org/appcontrol/operation/create_content",
+                    null,
+                    "video/3gp");
+            //izen.application.launchAppControl(appControl, null, photosuccess, photofail, photowhatever);
+            tizen.application.launchAppControl(appControl, null,
+                    function(){console.log("launch appControl succeeded");}, 
+                    function(e){console.log("launch appControl failed. Reason: " + e.name);}, 
+                    appControlReplyVideo);
+        }
+        
+        var appControlReplyVideo = 
+        { 
+           /* Reply is sent if the requested operation is successfully delivered */
+           onsuccess: function(reply) 
+           { 
+        	  console.log(reply);
+        	  console.log("Adding video " + reply[0].value[0]);
+        	  
+        	  var d = new Date();
+              $scope.addItem({type: 'video', title:'Title', url: reply[0].value[0], date:d });
+              $scope.$apply();
+           } 
+        }
+        /* ! VIDEO ! */
+        
 
         $scope.addContact = function() {
         	try {

@@ -20,7 +20,6 @@ angular.module('brownie').controller('ContactCtrl', [
 			selected:false
 		}];
 		*/
-		console.log($scope.contacts);
 		
 		$scope.changestatus = function() {
 	  		$scope.edit = !$scope.edit;
