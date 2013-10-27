@@ -18,6 +18,9 @@ angular.module('brownie').controller('CardCtrl', [
         $scope.addCanvas = function() {
             $scope.addItem({type: 'canvas', title:'Title', img: ''});
         }
+        $scope.addLocation = function() {
+            $scope.addItem({type: 'location', title: ''});
+        }
 
         cardStore.getCards();
         $scope.card = cardStore.cards[$stateParams.id];
