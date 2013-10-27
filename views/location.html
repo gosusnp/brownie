@@ -1,6 +1,9 @@
 <div class="canvas ui piled segment">
     <i class="resize fa fa-resize-vertical"></i> <span class="title" contenteditable="true" ng-model="item.title"></span><br />
-    <div google-maps></div>
+    <div ng-show="loading" class="row" style="text-align: center; font-size: 90px">
+        <i class="spinner fa fa-spinner"></i>
+    </div>
+    <div ng-hide="loading" google-maps></div>
     <div class="row" style="margin: 5px; border: solid 1px #d0d0d0; padding: 3px">
         latitude: <span contenteditable="true" ng-model="item.coords.latitude"></span><br />
         longitude: <span contenteditable="true" ng-model="item.coords.longitude"></span>

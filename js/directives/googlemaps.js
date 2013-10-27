@@ -17,6 +17,7 @@ angular.module('brownie').directive('googleMaps', [
                 };
 
                 var searchByCoords = function(coords) {
+                    scope.loading = true;
                     scope.item.coords.latitude = coords.latitude;
                     scope.item.coords.longitude = coords.longitude;
                     updateMap(scope.item.coords);
@@ -32,10 +33,15 @@ angular.module('brownie').directive('googleMaps', [
                                 }
                             }
                             //scope.$apply();
+                            scope.loading = false;
+                        })
+                        .error(function(data) {
+                            scope.loading = false;
                         })
                     ;
                 };
                 var searchByName = function(name) {
+                    scope.loading = true;
                     $http.get('http://maps.googleapis.com/maps/api/geocode/json?address='+
                             encodeURIComponent(name) + '&sensor=false')
                         .success(function(data) {
@@ -46,17 +52,25 @@ angular.module('brownie').directive('googleMaps', [
                                 scope.item.coords.longitude = result.geometry.location.lng;
                                 updateMap(scope.item.coords);
                             }
-                        });
+                            scope.loading = false;
+                        })
+                        .error(function(data) {
+                            scope.loading = false;
+                        })
+                    ;
                 }
 
                 scope.searchByCoords = searchByCoords;
                 scope.searchByName = searchByName;
 
                 if (!scope.item.coords.hasOwnProperty('latitude') || !scope.item.coords.hasOwnProperty('longitude')) {
+                    scope.loading = true;
                     navigator.geolocation.getCurrentPosition(function(position) {
                         searchByCoords(position.coords);
+                        scope.loading = false;
                     }, function(error) {
                         console.error('GPS error occurred');
+                        scope.loading = false;
                     });
                 } else {
                     updateMap(scope.item.coords);
