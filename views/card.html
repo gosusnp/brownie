@@ -39,6 +39,7 @@
                 <div ng-if="item.type == 'note'"><note></note></div>
                 <div ng-if="item.type == 'contact'"><contact></contact></div>
                 <div ng-if="item.type == 'photo'"><photo></photo></div>
+                <div ng-if="item.type == 'location'"><location></location></div>
             </div>
         </div>
     </div>
@@ -50,6 +51,7 @@
             <li><a class="clickable" ng-click="addCanvas()"><i class="fa fa-pencil-square-o"></i> Draw</a></li>
             <li><a class="clickable" ng-click="addPhoto()"><i class="fa fa-camera"></i> Photo</a></li>
             <li><a class="clickable" ng-click="addContact()"><i class="fa fa-user"></i> Contact</a></li>
+            <li><a class="clickable" ng-click="addLocation()"><i class="fa fa-map-marker"></i> Location</a></li>
         </ul>
     </div>
     <br />

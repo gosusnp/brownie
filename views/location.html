@@ -1,0 +1,16 @@
+<div class="canvas ui piled segment">
+    <i class="resize fa fa-resize-vertical"></i> <span class="title" contenteditable="true" ng-model="item.title"></span><br />
+    <div google-maps></div>
+    <div class="row" style="margin: 5px; border: solid 1px #d0d0d0; padding: 3px">
+        latitude: <span contenteditable="true" ng-model="item.coords.latitude"></span><br />
+        longitude: <span contenteditable="true" ng-model="item.coords.longitude"></span>
+        <i class="fa fa-search pull-right clickable" ng-click="searchByCoords(item.coords)"></i>
+    </div>
+    <div class="row" style="margin: 5px; border: solid 1px #d0d0d0; padding: 3px">
+    adresse: <span contenteditable="true" ng-model="item.address"></span>
+        <i class="fa fa-search pull-right clickable" ng-click="searchByName(item.address)"></i>
+    </div>
+    <div class="row" style="margin: 5px; border: solid 1px #d0d0d0; padding: 3px">
+    commentaires: <span contenteditable="true" ng-model="item.comments"></span>
+    </div>
+</div>
