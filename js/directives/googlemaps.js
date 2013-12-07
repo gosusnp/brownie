@@ -69,7 +69,7 @@ angular.module('brownie').directive('googleMaps', [
                         searchByCoords(position.coords);
                         scope.loading = false;
                     }, function(error) {
-                        console.error('GPS error occurred');
+                        console.error(JSON.stringify(error));
                         scope.loading = false;
                     });
                 } else {

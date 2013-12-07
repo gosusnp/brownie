@@ -1,23 +1,6 @@
 <div class="card">
             <div class="item ui segment header {{card.color}}">
                 <span class="title" contenteditable="true" ng-model="card.name"></span>
-                <!--<span class="color"><i class="fa fa-tint"></i></span> -->
-                <!-- 
-                <div class="btn-group dropup colorbutton">
-					<a title="Change color" class="btn btn-link notd right" data-toggle="dropdown">
-						<i class="fa fa-tint"></i>
-					</a>
-					<ul class="dropdown-menu pull-top">
-						 <div class="left color white link" ng-click="card.color='white'"></div>
-						 <div class="left color purple link" ng-click="card.color='purple'"></div>
-						 <div class="left color red link" ng-click="card.color='red'"></div>
-						 <div class="left color orange link" ng-click="card.color='orange'"></div>
-						 <div class="left color green link" ng-click="card.color='green'"></div>
-						 <div class="left color blue link" ng-click="card.color='blue'"></div>
-						 <div class="clear"></div>
-				 	</ul>
-            	</div>
-            	 -->
             	<div class="dropdown" style="float:right;">
 			  		<a data-toggle="dropdown"><i class="dark-grey fa fa-tint"></i></a>
 			  		<ul class="dropdown-menu pull-right" style="min-width:30px; padding:5px">
@@ -32,8 +15,9 @@
 				</div>	
             </div>
     <div class="items">
-        <div ui-sortable="sortableOptions" ng-model="card.items">
+        <div ng-model="card.items">
             <div class="item" ng-repeat="item in card.items">
+				<div class="myclose" ng-click="card.items.splice($index, 1)"><i class="fa fa-times-circle fa-2x"></i></div>
                 <div ng-if="item.type == 'todo'"><todo></todo></div>
                 <div ng-if="item.type == 'canvas'"><mycanvas></mycanvas></div>
                 <div ng-if="item.type == 'note'"><note></note></div>
@@ -45,7 +29,7 @@
         </div>
     </div>
     <div class="add-item btn-group dropup">
-        <a class="clickable dropdown-toggle" data-toggle="dropdown"><i class="fa fa-plus"></i></a>
+        <a class="clickable dropdown-toggle" data-toggle="dropdown"><i class="fa fa-plus-circle"></i></a>
         <ul class="dropdown-menu pull-right">
             <li><a class="clickable" ng-click="addNote()"><i class="fa fa-file-text-o"></i> Note</a></li>
             <li><a class="clickable" ng-click="addTodo()"><i class="fa fa-check-square-o"></i> Checklist</a></li>

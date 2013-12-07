@@ -25,7 +25,7 @@ angular.module('brownie').controller('TodoCtrl', [
 	$scope.addTask = function() {
 		// FIXME default text should be '', however, if it is set to '',
                 // it is not editable through the UI
-		$scope.item.tasks.push({text: '...', done: false});
+		$scope.item.tasks.push({text: '', done: false});
 	}
     }
 ]);

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/brownie" version="1.0.0" viewmodes="maximized">
-    <tizen:application id="WTkLQwQ6qq.brownie" package="WTkLQwQ6qq" required_version="2.2"/>
+    <access origin="*" subdomains="true"></access>
+    <tizen:application id="Xr2tPpHw0r.brownie" package="Xr2tPpHw0r" required_version="2.2"/>
     <content src="index.html"/>
     <icon src="icon.png"/>
     <name>brownie</name>
     <tizen:privilege name="http://tizen.org/privilege/contact.read"/>
     <tizen:privilege name="http://tizen.org/privilege/mediacapture"/>
     <tizen:privilege name="http://tizen.org/privilege/application.launch"/>
+    <tizen:privilege name="http://tizen.org/privilege/location"/>
+    <tizen:setting screen-orientation="portrait" context-menu="enable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"/>
 </widget>

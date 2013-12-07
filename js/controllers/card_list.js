@@ -9,6 +9,10 @@ angular.module('brownie').controller('CardListCtrl', [
             cardStore.cards.push({name:"New card", created_at:d, items: []});
             cardStore.saveCards();
         }
+        $scope.removeCard = function(index) {
+        	cardStore.cards.splice(index, 1);
+        	cardStore.saveCards();
+        }
         
         $scope.stats = function(card) {
         	var stats = {

@@ -13,10 +13,10 @@ angular.module('brownie').controller('CardCtrl', [
             $scope.addItem({type: 'note', text: ''});
         }
         $scope.addTodo = function() {
-            $scope.addItem({type: 'todo', title: 'Title', tasks: []});
+            $scope.addItem({type: 'todo', title: 'Title', tasks: [{text: '', done: false}, {text: '', done: false}, {text: '', done: false}]});
         }
         $scope.addCanvas = function() {
-            $scope.addItem({type: 'canvas', title:'Title', img: ''});
+            $scope.addItem({type: 'canvas', title:'Title', img: '', editable: true});
         }
         $scope.addLocation = function() {
             $scope.addItem({type: 'location', title: ''});

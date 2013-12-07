@@ -1,5 +1,6 @@
 <div class="card cards">
     <div ng-repeat="card in cards">
+	<div class="myclose2" ng-click="removeCard($index)"><i class="fa fa-times-circle fa-2x"></i></div>
         <div class="items">
         <a class="item" ui-sref="cards-get({id: $index})">
         <div class="colorheader" style="height:0.3em; width:100%; background-color:{{card.color}}"></div>
@@ -7,7 +8,6 @@
           <div class="meta">{{card.created_at |date:'dd MMMM'}}</div>
           <div class="name">{{card.name}}</div>
           <div class="clear"></div>
-          <p class="description">Proin adipiscing tortor ut lorem pulvinar sodales. Sed vel auctor purus. Ut laoreet dui vestibulum rutrum aliquet.</p>
           <span class="sublabel">{{card.items.length}} item<span ng-show="card.items.length > 1">s</span></span>
         </div>
       </a>

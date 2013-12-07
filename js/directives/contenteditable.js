@@ -13,7 +13,7 @@ angular.module('brownie').directive('contenteditable', function() {
  			};
 
 			// Listen for change events to enable binding
-	 		element.bind('blur keyup change', function() {
+	 		element.bind('blur', function() {
 	 			scope.$apply(read);
 	 		});
 

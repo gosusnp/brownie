@@ -26,6 +26,9 @@ angular.module('brownie').directive("drawing", [
                     }
                 };
                 var moveStart = function(event) {
+                	if (!scope.item.editable)
+                		return;
+
                     drawing = true;
                     ctx.beginPath();
                     ctx.moveTo(getX(event),getY(event));

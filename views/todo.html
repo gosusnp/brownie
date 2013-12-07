@@ -1,16 +1,16 @@
 <div class="todo ui piled segment">
-	<i class="resize fa fa-resize-vertical"></i> <span class="title" contenteditable="true" ng-model="item.title"></span><br />
+	<span class="title" contenteditable="true" ng-model="item.title"></span><br />
 	<span class="remaining">{{remaining()}} of {{item.tasks.length}} remaining</span>
 	<div class="progress">
 		<div class="progress-bar" role="progressbar" aria-valuenow="{{progression()}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progression()}}%">
 		</div>
 	</div>
-	<ul>
-		<li ng-repeat="task in item.tasks">
-			<i class="fa actionable" ng-class="task.done && 'fa-check-square-o' || 'fa-square-o'" ng-click="task.done = !task.done"></i>
-			<span contenteditable="true" ng-model="task.text" class="done-{{task.done}}"></span>
-		</li>
-	</ul>
+	<table style="width: 100%">
+		<tr ng-repeat="task in item.tasks">
+			<td style="width: 1px"><i class="fa actionable" ng-class="task.done && 'fa-check-square-o' || 'fa-square-o'" ng-click="task.done = !task.done"></i></td>
+			<td><span style="width: 100%; display: inline-block;" contenteditable="true" ng-model="task.text" class="done-{{task.done}}"></span></td>
+		</tr>
+	</table>
 	<div class="container">
 		<i class="fa fa-plus actionable pull-right" ng-click="addTask()"></i>
 	</div>

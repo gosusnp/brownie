@@ -45,6 +45,7 @@ ul, li {
 	position: fixed;
 	right: 7px;
 	bottom: 0;
+	z-index: 3;
 }
 
 .card .add-item ul{
@@ -333,6 +334,23 @@ color: rgba(0, 0, 0, 0.45);
 
 .clear {
 	clear:both;
+}
+
+.myclose {
+	position: relative;
+	float: right;
+	z-index: 2;
+	margin-top: -14px;
+	margin-right: -7px;
+	cursor: pointer;
+}
+.myclose2 {
+	position: relative;
+	float: right;
+	z-index: 2;
+	margin-top: -4px;
+	margin-right: 5px;
+	cursor: pointer;
 }
 
 .spinner {
